@@ -87,7 +87,7 @@ return (
                         <div className='row'>
                             <div className="formulario__grupo">
                             </div> 
-                            <form action="" className='form__datos__personales '>
+                            <form action="" disable={true} className='form__datos__personales '>
                                 <div class="row row-cols-12">
                                     <div className='segunda__columna col-5'>
                                         <InputForm 

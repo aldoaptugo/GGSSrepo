@@ -3,12 +3,12 @@ import InputCbo from '../../Inputs/InputCbo/InputCbo';
 import './BasicModal.css'
 import '../Modales.css'
 
-const BasicModal = ({ idModal, nameModal, nameOptionModal, array }) => {
+const BasicModal = ({ idModal, nameModal, nameOptionModal, idInput, array }) => {
 
-    console.log(nameOptionModal)
+  
     return (
-        <div>
-            <div className="modal fade" id={idModal} tabindex="-1" aria-labelledby={`${idModal}Label`} aria-hidden="true">
+         <div>
+            <div className="modal fade" id={idModal} data-bs-backdrop="static" tabindex="-1" aria-labelledby={`${idModal}Label`} aria-hidden="true">
                 <div className="modal-dialog modal-xl">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -19,22 +19,22 @@ const BasicModal = ({ idModal, nameModal, nameOptionModal, array }) => {
                         </div>
                         <div className="modal-body">
                             <div className="llamadaApi">
-
                                 <label htmlFor="data">Datos: </label>
                                 <br />
                                 <select class="form-select row mt-1" multiple aria-label="multiple select example">
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    {
+                                        array.map((op,i)=>{
+                                            return(
+                                                <option key={i} >{op}</option>
+                                            )
+                                        })
+                                    }
                                 </select>
-
                             </div>
                             <div className="bodyInputs">
-                                <label htmlFor={idModal} style={{ marginRight: "15px" }}> {nameOptionModal}: </label>
-                                <input type="text" name={idModal} />
-                               
+                                <label htmlFor={idInput} style={{ marginRight: "15px" }}> {nameOptionModal}: </label>
+                                <input type="text" id={idInput} name={idInput} />
                                 <hr />
-
                                 <div className="btnInputs">
                                     <button type="button" className="btn btn-danger btnAceptar">
                                         ACEPTAR
@@ -45,7 +45,6 @@ const BasicModal = ({ idModal, nameModal, nameOptionModal, array }) => {
                                 </div>
                             </div>
                         </div>
-
                         <div className="modal-footer">
                             <div className="crudBtns">
                                 <button type="button" className="btn btn-danger crudBtn">
@@ -65,7 +64,7 @@ const BasicModal = ({ idModal, nameModal, nameOptionModal, array }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }
 

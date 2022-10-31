@@ -3,21 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import ButtonCallModal from '../Buttons/ButtonCallModal';
 import BasicModal from '../Modals/BasicModal/BasicModal';
 
-const Navbar = () => {
-
-// const titleEmpleados = document.querySelector('.titleEmpleados')
-// const titleLiquidacion = document.querySelector('.titleLiquidacion')
-
-// const datosEmpleados = document.querySelector('.datosEmpleados')
-// const datosLiquidacion = document.querySelector('.datosLiquidacion')
-
-// const handleDatosEmpleados = () => {
-// 	datosEmpleados.className.add('.closeData')
-// }
-
-// const handleDatosLiquidacion = () => {
-// 	datosLiquidacion.className.add('.closeData')
-// }
+const NavbarMenu = () => {
 
   return (
 	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,7 +27,7 @@ const Navbar = () => {
                         <li><Link class="dropdown-item" to="#">Busqueda de Datos</Link></li>
                     </ul>
                 </li>
-				<li class="nav-item">
+				{/* <li class="nav-item">
 				<a class="nav-link" href="/some/valid/uri">Liquidación</a>
 				</li>
 				<li class="nav-item">
@@ -49,7 +35,7 @@ const Navbar = () => {
 				</li>
 				<li class="nav-item">
 				<a class="nav-link" href="/some/valid/uri">Períodos</a>
-				</li>
+				</li> */}
 				<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Tabla de Datos
@@ -57,9 +43,9 @@ const Navbar = () => {
                     <ul class="dropdown-menu">
 						<h6 className="titleEmpleados">Para empleados: </h6>
 						<div className="datosEmpleados">
-							<ButtonCallModal idModal="Estudios" nameButton="Estudios" />
-          					<BasicModal idModal="Estudios" nameModal="Estudios" nameOptionModal="Nivel de Estudios" />
-							<li><Link class="dropdown-item" to="/lista-datos/estadoCivil">Estado Civil</Link></li>
+							<ButtonCallModal idModal="modalEstadoCivil" nameButton="Modal" nameModal="Prueba" nameOptionModal="cerrar"/>
+							<ButtonCallModal idModal="modalEstadoCivil" nameButton="Modal" nameModal="Prueba" nameOptionModal="cerrar"/>
+							{/* <li><Link class="dropdown-item" to="/lista-datos/estadoCivil">Estado Civil</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/estudios">Estudios</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/tipoDocumento">Tipo de Documento Civil</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/parentescos">Parentescos</Link></li>
@@ -74,17 +60,19 @@ const Navbar = () => {
 							<li><Link class="dropdown-item" to="/lista-datos/pdlb">Provincias - Departamentos - Localidades - Barrios</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/tareasDesempeñadas">Tareas Desempeñadas</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/empleadores">Empleadores</Link></li>
-							<li><Link class="dropdown-item" to="/lista-datos/alicuotas">Alicuotas</Link></li>
+							<li><Link class="dropdown-item" to="/lista-datos/alicuotas">Alicuotas</Link></li> */}
 						</div>
 						<hr />
 						<h6 className="titleLiquidacion">Para liquidación: </h6>
 						<div className="datosLiquidacion">
 							...
 						</div>
-
                     </ul>
                 </li>
-				<li class="nav-item">
+				
+
+
+				{/* <li class="nav-item">
 				<a class="nav-link" href="/some/valid/uri">Informes y Listados</a>
 				</li>
 				<li class="nav-item">
@@ -92,7 +80,7 @@ const Navbar = () => {
 				</li>
 				<li class="nav-item">
 				<a class="nav-link" href="/some/valid/uri">Acerca de...</a>
-				</li>
+				</li> */}
 				<li class="nav-item">
 					<a class="nav-link" href="/">Salir</a>
 				</li>
@@ -103,4 +91,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavbarMenu;

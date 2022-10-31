@@ -24,7 +24,7 @@ const Navbar = () => {
 				<li class="nav-item">
 					<Link class="nav-link" to="/home/familia">Familia</Link>
 				</li>
-				<li class="nav-item">
+				{/* <li class="nav-item">
 					<a class="nav-link" href="/some/valid/uri">Liquidación</a>
 				</li>
 				<li class="nav-item">
@@ -41,7 +41,7 @@ const Navbar = () => {
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/some/valid/uri">Extras</a>
-				</li>
+				</li> */}
 				
       		</ul>
     	</div>
