@@ -1,6 +1,6 @@
-import "./InputForm.css";
+import "./InputForm2daColumn.css";
 
-const InputForm = ({
+const InputForm2daColumn =({
   nameInput,
   messageError,
   placeHolder,
@@ -15,7 +15,8 @@ const InputForm = ({
         </div>
         <div className='form__grupo-input'>
             <input type="text" 
-                    className='formulario-input-Legajo'      id={inputId}                               
+                    className='formulario-input-Legajo'                     
+                    id={inputId}                                 
                     placeholder={placeHolder}
 				            value={value} 
                     onChange={(e)=>onChange(e)}            
@@ -30,4 +31,4 @@ const InputForm = ({
     </div>
   )
 };
-export default InputForm;
+export default InputForm2daColumn;
