@@ -4,7 +4,6 @@ import ButtonCancelarAceptar from "../Buttons/ButtonCancelarAceptar";
 // import ButtonLarge from '../Buttons/ButtonLarge'
 import InputButton from "../Inputs/InputButton/InputButton";
 import InputCbo from "../Inputs/InputCbo/InputCbo";
-import InputForm from "../Inputs/InputForm/InputForm";
 import InputParentesco from "../Inputs/InputParentesco/InputParentesco";
 import TextArea from "../Inputs/TextArea/TextArea";
 import TableBasic from "../Tables/TableBasic";

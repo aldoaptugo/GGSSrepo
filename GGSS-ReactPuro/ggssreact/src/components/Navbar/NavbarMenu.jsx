@@ -1,9 +1,35 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { Link, Navigate } from "react-router-dom";
 import ButtonCallModal from '../Buttons/ButtonCallModal';
 import BasicModal from '../Modals/BasicModal/BasicModal';
 
 const NavbarMenu = () => {
+
+	const [estadosCiviles, setEstadosCiviles] = useState([]);
+	const url = "http://54.243.192.82/api/EstadosCiviles";
+
+	useEffect(()=>{
+		axios
+		.get(url)
+		.then(res=> setEstadosCiviles(res.data))
+	},[])
+
+	
+	const objectInput = [
+		{
+			"label" : "Masculino",
+			"placeholder" : "Casado"
+		},
+		{
+			"label" : "Femenino",
+			"placeholder" : "Casada"
+		}
+	]
+	const objetEstudios = [{ "label" : "Estudios", "placeholder" : "Universitario"}]
+	
+	
 
   return (
 	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,14 +63,15 @@ const NavbarMenu = () => {
 				<a class="nav-link" href="/some/valid/uri">Períodos</a>
 				</li> */}
 				<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Tabla de Datos
                     </a>
                     <ul class="dropdown-menu">
+          				
 						<h6 className="titleEmpleados">Para empleados: </h6>
-						<div className="datosEmpleados">
-							<ButtonCallModal idModal="modalEstadoCivil" nameButton="Modal" nameModal="Prueba" nameOptionModal="cerrar"/>
-							<ButtonCallModal idModal="modalEstadoCivil" nameButton="Modal" nameModal="Prueba" nameOptionModal="cerrar"/>
+						<div className="">
+							<ButtonCallModal idModal="modalEC" nameButton="Estudios" useNavbar={true}/>
+
 							{/* <li><Link class="dropdown-item" to="/lista-datos/estadoCivil">Estado Civil</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/estudios">Estudios</Link></li>
 							<li><Link class="dropdown-item" to="/lista-datos/tipoDocumento">Tipo de Documento Civil</Link></li>
@@ -72,7 +99,7 @@ const NavbarMenu = () => {
 				
 
 
-				{/* <li class="nav-item">
+				<li class="nav-item">
 				<a class="nav-link" href="/some/valid/uri">Informes y Listados</a>
 				</li>
 				<li class="nav-item">
@@ -80,8 +107,9 @@ const NavbarMenu = () => {
 				</li>
 				<li class="nav-item">
 				<a class="nav-link" href="/some/valid/uri">Acerca de...</a>
-				</li> */}
-				<li class="nav-item">
+				</li>
+				<BasicModal idModal="modalEC" nameModal="Estados Civiles" nameOptionModal="Estado Civil" disableTxtArea={false} placeholder={objectInput} array={estadosCiviles} />
+				<li>
 					<a class="nav-link" href="/">Salir</a>
 				</li>
       		</ul>

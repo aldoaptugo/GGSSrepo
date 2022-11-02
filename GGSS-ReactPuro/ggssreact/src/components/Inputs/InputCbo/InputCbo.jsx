@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import ButtonCallModal from "../../Buttons/ButtonCallModal";
 import "./InputCbo.css";
 
-const InputCbo = ({nameLabel, array, fieldName, value, display, nameButton}) => {
+const InputCbo = ({nameLabel, array, fieldName, value, display, nameButton, idModal, nameButtonModal}) => {
     console.log(value)
     
     const [mostrarComponente, setMostrarComponente] = useState(true);
@@ -10,6 +11,8 @@ const InputCbo = ({nameLabel, array, fieldName, value, display, nameButton}) => 
       setMostrarComponente(display)
     },[display])
 
+
+     
   return (
     <div className='formulario__grupo__inputs__cbo '>
         <div className='form__grupo__label__inp '>
@@ -28,10 +31,11 @@ const InputCbo = ({nameLabel, array, fieldName, value, display, nameButton}) => 
                     }
                 </select>
             </div>
-            <button type="button" 
+            <ButtonCallModal class={mostrarComponente ? "tercero btn btn-validacion btn-outline-danger btn-sm ml-2 " : "none"} idModal={idModal} nameButton={nameButtonModal} useNavbar={false}/>
+           {/*  <button type="button" 
               class={mostrarComponente ? "tercero btn btn-validacion btn-outline-danger btn-sm ml-2 " : "none"}>
               {nameButton}
-            </button>
+            </button> */}
         </div>
       </div>
   );

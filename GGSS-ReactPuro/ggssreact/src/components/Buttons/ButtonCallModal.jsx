@@ -3,13 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import BasicModal from '../Modals/BasicModal/BasicModal';
 
 
-const ButtonCallModal = ({idModal, nameButton, nameModal, nameOptionModal}) => {
+const ButtonCallModal = ({idModal, nameButton, useNavbar}) => {
+  console.log(nameButton)
   return (    
     <>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${idModal}`}>
-      {nameButton.toString()}
-    </button>
-    <BasicModal idModal={idModal} nameModal={nameModal} nameOptionModal={nameOptionModal} idInput="inputPrueba"/>
+      <button type="button" className={useNavbar ? "dropdown-item btnCallModal" :  "btn btn-danger"} data-bs-toggle="modal" data-bs-target={`#${idModal}`}>
+        {nameButton}
+      </button>
     </>
   )
 }

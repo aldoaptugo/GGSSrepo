@@ -1,4 +1,5 @@
 import "./InputForm.css";
+import {useEffect} from "react";
 
 const InputForm = ({
   nameInput,
@@ -7,27 +8,36 @@ const InputForm = ({
   onChange,
   inputId,
   value,
+  classes
 }) => {
+  useEffect(() => {
+    
+  }, [classes])
+  
+  //Seteamos las clases en el classes.js y las mapeamos a los tags que queremos. Made in inft, derechos de autor.
   return (
-    <div className="formulario__grupo__inputs">
-        <div className='formulario__grupo'>
-            <label className='formulario__label' htmlFor={inputId}>{nameInput}</label>
+    classes.map((clase, index)=>{
+        <div key={`${index}${clase.id}`} className={clase.classOne}>
+        <div className={clase.classTwo}>
+            <label className={clase.classThree} htmlFor={inputId}>{nameInput}</label>
         </div>
-        <div className='form__grupo-input'>
+        <div className={clase.classFour}>
             <input type="text" 
-                    className='formulario-input-Legajo'      id={inputId}                               
+                    className={clase.classFive}      id={inputId}                               
                     placeholder={placeHolder}
-				            value={value} 
+                    value={value} 
                     onChange={(e)=>onChange(e)}            
                     />
         </div>
-        <div className='form__grupo__icons'>
-            <i className="fas fa-times-circle form__grupo__icon"></i>            
+        <div className={clase.classSix}>
+            <i className={clase.classSeven}></i>            
         </div>  
-        <div className='form__grupo__errors'>
-            <p className='form__grupo__error'>{messageError}</p>
+        <div className={clase.classEight}>
+            <p className={clase.classNine}>{messageError}</p>
         </div>    
     </div>
+    })
+    
   )
 };
 export default InputForm;

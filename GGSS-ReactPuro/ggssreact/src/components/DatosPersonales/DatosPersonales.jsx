@@ -15,7 +15,10 @@ import { employeContext } from "../../context/employeContext";
 import axios from "axios";
 import ButtonCancelarAceptar from "../Buttons/ButtonCancelarAceptar";
 import Domicilios from "../Domicilios/Domicilios";
+import generateCuil from "./generateCuil.js";
 // import InputForm2daColumn from "../Inputs/InputForm2daColumn/InputForm2daColumn";
+//---------------------------Clases
+import {classesEstadosCiviles, classesEstudios} from "./classes.js";
 
 const DatosPersonales = () => {
   const optionsDNI = ["DNI", "LC", "LE"];
@@ -28,6 +31,9 @@ const DatosPersonales = () => {
   const url = "http://54.243.192.82/api/Estados";
 
   const estadosCiviles = ["Soltero", "Casado", "Viudo", "Divorciado"];
+
+ 
+
 
   useEffect(() => {
     axios.get(url).then((res) => saveEstados(res.data));
@@ -100,6 +106,7 @@ const DatosPersonales = () => {
                     <div class="row row-cols-12">
                       <div className="segunda__columna col-5">
                         <InputForm
+                        classes={[classesEstadosCiviles[0]]}
                           value={
                             saveEmpl[0] !== undefined || saveEmpl[0] === null
                               ? saveEmpl[0].legajo
@@ -110,6 +117,7 @@ const DatosPersonales = () => {
                           placeHolder="N° Legajo"
                         />
                         <InputForm
+                          classes={[classesEstudios[0]]}
                           value={
                             saveEmpl[0] !== undefined
                               ? saveEmpl[0].apellido
@@ -120,6 +128,7 @@ const DatosPersonales = () => {
                           placeHolder="Ingrese Apellidos"
                         />
                         <InputForm
+                          classes={[classesEstadosCiviles[0]]}
                           value={
                             saveEmpl[0] !== undefined
                               ? saveEmpl[0].nombres
@@ -142,7 +151,7 @@ const DatosPersonales = () => {
                         />
                         <InputButton
                           value={
-                            saveEmpl[0] !== undefined ? saveEmpl[0].cuil : null
+                            saveEmpl[0] !== undefined ? saveEmpl[0] : null
                           }
                           id="inputCuil"
                           nameLabel="C.U.I.L"
@@ -150,8 +159,10 @@ const DatosPersonales = () => {
                           placeholder="##-########-#"
                           idModal="modalCuil"
                           array={[]}
+                          onClick={generateCuil}
                         />
                         <InputForm
+                        classes={[classesEstadosCiviles[0]]}
                           value={
                             saveEmpl[0] !== undefined
                               ? saveEmpl[0].telFijo
@@ -162,6 +173,8 @@ const DatosPersonales = () => {
                           placeHolder="11352458965"
                         />
                        <InputCbo
+                          idModal="modalEC"
+                          nameButtonModal = "..."
                           value={
                             saveEmpl[0] !== undefined
                               ? saveEmpl[0].idEstadoCivil
@@ -213,6 +226,7 @@ const DatosPersonales = () => {
                           nameInput="Nacimiento"
                         />
                         <InputForm
+                        classes={[classesEstadosCiviles[0]]}
                           value={
                             saveEmpl[0] !== undefined
                               ? saveEmpl[0].telMovil
@@ -223,6 +237,7 @@ const DatosPersonales = () => {
                           placeHolder="Ingrese su celular"
                         />
                         <InputForm
+                        classes={[classesEstadosCiviles[0]]}
                           value={
                             saveEmpl[0] !== undefined ? saveEmpl[0].mail : null
                           }
