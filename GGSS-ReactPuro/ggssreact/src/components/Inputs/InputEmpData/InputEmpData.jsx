@@ -1,14 +1,14 @@
 import React from "react";
 
-const InputEmpData = ({ idInput, inputValue, nameLabel,disabled }) => {
+const InputEmpData = ({ idInput, inputValue, nameLabel, disabled }) => {
   return (
-    <div>
-      <label className=" m-0" 
+    <div className="d-flex-inline">
+      <label className="mx-0 my-1" 
       htmlFor={idInput}>
-        {nameLabel}
+        {nameLabel + `\b`}
         </label>
       <input
-        className="form-control-sm"
+        className="form-control-xs border-0"
         type="text"
         id={idInput}
         name={idInput}

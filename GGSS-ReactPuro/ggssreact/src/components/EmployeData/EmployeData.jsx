@@ -30,10 +30,10 @@ const EmployeData = ({disabled}) => {
                   id="imagen"
                   src={`data:image/jpeg;base64,${image}`}
                   alt=""
-                  style={{ width: "150px;", height: "150px;" }}
+                  style={{}}
                 />
              </div>
-              <div className="col-5  d-flex align-items-center"> 
+              <div className="col-5 d-flex align-items-center"> 
               <div>
             <InputEmpData
                 idInput="legajoInfo"
@@ -59,7 +59,16 @@ const EmployeData = ({disabled}) => {
                 nameLabel="Apellido: "
                 disabled={disabled}
                 />
-          
+                <InputEmpData
+                idInput="nombresInfo"
+                inputValue={
+                  saveEmpl[0] !== undefined || saveEmpl[0] === null
+                    ? saveEmpl[0].nombres
+                    : null
+                }
+                nameLabel="Nombres: "
+                disabled={disabled}
+              />
             <InputEmpData
                   idInput="tipoDNIInfo"
                   inputValue={
@@ -67,12 +76,13 @@ const EmployeData = ({disabled}) => {
                       ? saveEmpl[0].nroDocumento
                       : null
                   }
-                  nameLabel="Documento N°:"
+                  nameLabel="Documento N°: "
                   disabled={disabled}
                 />
+                
               </div>
              </div>
-              <div className="col-2  d-flex-column align-items-center">
+              <div className="col-4  d-flex-column align-items-center">
                 <InputEmpData
                   idInput="estadoInfo"
                   inputValue={
@@ -81,16 +91,7 @@ const EmployeData = ({disabled}) => {
                   nameLabel="Estado: "
                   disabled={disabled}
                 />
-                <InputEmpData
-                  idInput="nombresInfo"
-                  inputValue={
-                    saveEmpl[0] !== undefined || saveEmpl[0] === null
-                      ? saveEmpl[0].nombres
-                      : null
-                  }
-                  nameLabel="Nombres: "
-                  disabled={disabled}
-                />
+               
              </div>
 
           </div>
